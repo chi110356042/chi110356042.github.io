@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Kite Memory</title>
+  
+  <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  #nav{
+	width: 100%;
+	height: 50px;
+	background-color: #f8f8f8;
+	position: relative;
+}
+
+#nav #title{
+	width: 150px;
+	height: 45px;
+	float: left;
+	/*background-color: #FFC0CB;*/
+	font-size: 30px;
+	line-height: 45px;
+	padding-left: 30px;
+}
+#nav #title a{
+	text-decoration: none;
+	color: #5a5959;
+}
+
+#search{
+	width: 400px;
+	height: 40px;
+	margin: auto;
+	background-color: #d5d5d5;
+	/*background-color: #f1f1f1;*/
+	position: absolute;
+	top: 5px;
+	left: 350px;
+	float: left;
+}
+#search .schtext{
+	width: 350px;
+	height: 35px;
+	float: left;
+	border: none;
+	padding-left: 10px;
+	background-color: #d5d5d5;
+	/*background-color: white;*/
+}
+#search .bt{
+    height: 38px;
+    width: 38px;
+    float: right;
+    background-color: #d5d5d5;
+    /*background: #f1f1f1;*/
+    background-image: url(img/searchbt.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    border: none;
+} 
+
+#nav .mem{
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	top: 7px;
+	right: 20px;
+}
+#nav .favo{
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 12px;
+	right: 70px;
+}
+
+#nav .kite_img{
+	width: 35px;
+	height: 25px;
+	position: absolute;
+	top: 12px;
+	right:1310px;
+}
+
+#nav .sort{
+	text-decoration: none;
+	color: #808080;
+	font-size: 15px;
+}
+
+#nav .box{
+	z-index:1;
+	width: 105px;
+	height: 155px;
+	/*border: 1px solid black;*/
+	position:absolute;
+	left: 180px;
+}
+
+#nav .box .main-menu{
+	width: 100px;
+	height: 50px;
+	display: block;
+	/*background-color: #D5D5D5;*/
+	
+	text-align: center;
+	line-height: 45px;
+}
+#nav .dropdownbox{
+	display: none;
+}
+#nav .dropdownbox a{
+		width: 100px;
+		height: 50px;
+		background: #D5D5D5;
+		border-bottom: 1px solid gainsboro;
+		display: block;
+		font-size: 15px;
+		line-height: 50px;
+		color:#808080;
+		text-decoration: none;
+		text-align: center;
+}
+#nav .dropdownbox a:hover{
+	background: #c3acac;
+}
+#nav .box:hover .dropdownbox{
+	z-index:1;
+	display: block;
+		
+}
+
+#nav .about{
+	width: 90px;
+	height: 15px;
+	text-decoration: none;
+	color: #808080;
+	font-size: 15px;
+	line-height: 15px;
+	position: absolute;
+	top: 17px;
+	right: 200px;
+	
+	/*background-color: #FFC0CB;*/
+	
+}
+#nav .todo{
+	width: 90px;
+	height: 15px;
+	text-decoration: none;
+	color: #808080;
+	font-size: 15px;
+	line-height: 15px;
+	position: absolute;
+	top: 17px;
+	right: 150px;
+	/*background-color: #FFC0CB;*/
+	
+}
+
+#main #recbottom{
+	width: 100%;
+	height: 140px;
+	background-color: black;
+	opacity:0.8;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+#main #recbottom .func1{
+	display: block;
+	width: 500px;
+	height: 50px;
+	font-size: 25px;
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+#main #recbottom .func2{
+	display: block;
+	width: 500px;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+	padding-top: 25px;
+}
+#main .but{
+	display: block;
+	width: 100px;
+	height: 40px;
+	background-color: gainsboro;
+	text-decoration: none;
+	text-align: center;
+	color: black;
+	line-height: 40px;
+	opacity:1;
+	margin: 0 auto;
+
+}
+
+
+/* The Close Button (x) */
+.recclose {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.recclose:hover,
+.recclose:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+
+.image-label {
+  display: block;
+  font-family: verdana;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.frame {
+  border: 2px solid #aaaaaa;
+  padding: 5px; /* 調整外框和圖片之間的間距 */
+  box-sizing: border-box;
+}
+
+.smallbox {
+  width: 25%; /* 將每個 smallbox 佔據四分之一的寬度 */
+  float: left; /* 浮動元素使其在同一行上顯示 */
+  box-sizing: border-box; /* 確保盒模型計算寬度包含邊框和內邊距 */
+  padding: 10px; /* 加入內邊距以增加間距 */
+
+}
+
+.smallbox-sm {
+  width: 20%; /* 將每個 smallbox 進一步縮小為五分之一的寬度 */
+ 
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a:hover b {
+  text-decoration: underline;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between; /* 調整元素之間的間距 */
+  align-items: center; /* 垂直居中對齊元素 */
+}
+
+
+
+
+</style></head>
+<body>
+
+  <!--1.導航-->
+  <div id="nav">
+			<div id="title">
+				<a href="{{url_for('home')}}">Kite</a>
+				<a href="{{ url_for('pay') }}"><img src="{{ url_for('static', filename='img/k.png')}}" class="kite_img"></a>
+			
+			</div>
+			
+			<div id="search">
+				<form>
+        			<input type="text" placeholder="SEARCH" name="search" class="schtext" />
+        			<input type="submit" value="" class="bt" />
+					
+					
+      			</form>
+			</div>
+			
+			<a href="{{ url_for('pay') }}" id="myBtn" class="first"><img src="{{url_for('static',filename='img/memb.png')}}"  class="mem"/></a>
+			<a href="{{ url_for('pay') }}"><img src="{{url_for('static',filename='img/favor.png')}}"  class="favo"/></a>
+		
+			<a href="{{ url_for('about') }}" class="about">About</a>
+			
+		
+	</div>
+  
+	<div class="slideshow-container">
+		<div class="mySlides fade">
+		  <img src="{{url_for('static',filename='img/pic1.jpg')}}" style="width:100%; height:450px;">
+		  <div class="t">Hello, Senior architect</div>
+		</div>
+	  
+		<div class="mySlides fade">
+		  <img src="{{url_for('static',filename='img/pic_new.jpg')}}" style="width:100%; height:450px;">
+		  <div class="t">Dr. Kite</div>
+		</div>
+	  
+		<div class="mySlides fade">
+		  <img src="{{url_for('static',filename='img/pic_new2.jpg')}}" style="width:100%; height:450px;">
+		  <div class="t" >Cathay Hero!!</div>
+		</div>
+	  
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+	  </div>
+	  <br>
+	  
+	  <div style="text-align:center">
+		<span class="dot" onclick="currentSlide(1)"></span>
+		<span class="dot" onclick="currentSlide(2)"></span>
+		<span class="dot" onclick="currentSlide(3)"></span>
+	  </div>
+	  
+	  <script>
+		var slideIndex = 0;
+		showSlides();
+	  
+		function plusSlides(n) {
+		  showSlides(slideIndex += n);
+		}
+	  
+		function currentSlide(n) {
+		  showSlides(slideIndex = n - 1);
+		}
+	  
+		function showSlides() {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("dot");
+		  for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		  }
+		  slideIndex++;
+		  if (slideIndex > slides.length) {
+			slideIndex = 1;
+		  }
+		  for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  slides[slideIndex - 1].style.display = "block";
+		  dots[slideIndex - 1].className += " active";
+	  
+		  // 自動換圖片
+		  setTimeout(showSlides, 3000);
+		}
+	  </script>
+	  
+	  
+	  
+  
+  
+  <!--3.主體-->
+  <div id="main">
+    <div class="left">
+      <ul>
+        <li class="main-menu"><a href="#">Life</a>
+			<div class="dropdown">
+					<a href="{{ url_for('life') }}">Kite</a>
+					<a href="{{ url_for('life_together') }}"> Together</a>
+			</div>
+		</li>
+        <li class="main-menu"><a href="{{ url_for('food') }}">Food</a>
+          <div class="dropdown">
+           
+          </div>
+        </li>
+        <li class="main-menu"><a href="{{ url_for('animal') }}">Animal</a>
+			<div class="dropdown">
+			
+			</div>
+		</li>
+        <li class="main-menu"><a href="{{ url_for('meme') }}">Meme</a>
+			<div class="dropdown">
+			
+			</div>
+		
+      </ul>
+    </div>
+    <!--第一排-->
+    <div class="content">
+      <div class="smallbox">
+	
+		    <a href="{{ url_for('life') }}"><img src="{{ url_for('static', filename='img/life.png') }}"><b style="font-family:verdana; color: #333333; ">Life</b></a>
+                   
+                  </div>
+
+      <div class="smallbox">
+		
+			<a href="{{ url_for('food') }}"><img src="{{ url_for('static', filename='img/food.png') }}"><b style="font-family:verdana; color: #333333;">Food</b></a>          
+                      </div>
+                
+      <div class="smallbox">
+		  	<a href="{{ url_for('animal') }}"><img src="{{ url_for('static', filename='img/animal.png') }}"><b style="font-family:verdana; color: #333333;">Animal</b></a>
+       
+        
+    
+      </div>
+
+
+	  <div class="smallbox" style="margin-right: 0;">
+			
+            <a href="{{ url_for('meme') }}"><img src="{{ url_for('static', filename='img/meme.png') }}"><b style="font-family:verdana; color: #333333;">Meme</b></a>
+      </div>
+    </div>
+
+
+  
+	<br />
+	<br />
+	<br />
+	<h5 style="top: 405px; left: 350px;"> 
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+	
+		&copy; 2023 Cathay SA Intern. All rights reserved.</h5>
+
+    
+	   <div id="recbottom" class="recmodal">
+    	<span onclick="document.getElementById('recbottom').style.display='none'" class="recclose"
+      title="Close Modal">&times;</span>
+    	<p class="func1">使用風箏pay享更多完整資訊 &nbsp;!</p>
+
+    	<p class="func2">（013)218506283952 、(013)699513585806</p>
+    	
+		</div>
+  </div>
+  
+   <script type = "text/javascript" language="javascript">
+   var span = document.getElementsByClassName("recclose")[0];
+  
+		span.onclick = function () {
+		    recbottom.style.display = "none";
+		}
+  </script>
+	
+  </div>
+  
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="a.js"></script>
+</body>
+
+</html>
