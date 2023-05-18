@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <title>Kite Life</title>
+ <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+ <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
+ <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+ <style>
+
+
+/* 隱藏模態框 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+
+.modal-content {
+  background-color: #f9f9f9;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 300px; /* 調整寬度 */
+  height: 250px; /* 調整高度 */
+  max-width: 80%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 加入陰影效果 */
+}
+
+.modal.show {
+  display: block;
+}
+
+
+
+
+/* 關閉按鈕 */
+.close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+            }
+
+.close:hover,
+.close:focus {
+  color: #333;
+}
+
+/* 彈出視窗內容 */
+.modal-content p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.image-container img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+
+.image-container::after {
+  content: attr(data-description);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover::after {
+  opacity: 1;
+}
+
+.frame {
+  border: 2px solid #aaaaaa;
+  padding: 5px; /* 調整外框和圖片之間的間距 */
+  box-sizing: border-box;
+}
+.content {
+  display: flex;
+  justify-content: space-between; /* 調整元素之間的間距 */
+  align-items: center; /* 垂直居中對齊元素 */
+}
+
+
+
+
+ </style>
+
+
+
+ 
+</head>
+
+<body>
+ <!--1.導航-->
+ <div id="nav">
+  <ul class="main-menu">
+   <li class="first"><a href="{{ url_for('pay') }}">Pay</a>
+   <li><a href="{{ url_for('pay') }}">Like</a></li>
+   <li><a href="{{ url_for('home') }}">Home</a>
+  </ul></li>
+
+  <div class="search">
+   <form>
+       <!--<input type="text" value="SEARCH" class="text" />-->
+    <input type="submit" value="" class="bt" />
+   </form>
+  </div>
+ </div>
+
+ 
+
+ <!--3.主體-->
+ <div id="main">
+  <div class="left">
+   <ul>
+        <li class="main-menu"><a href="#">Life</a>
+			<div class="dropdown">
+					<a href="{{ url_for('life') }}">Kite</a>
+					<a href="{{ url_for('life_together') }}">Together</a>
+				
+			</div>
+		</li>
+    <li><a href="{{ url_for('food') }}">Food</a></li>
+    <li><a href="{{ url_for('animal') }}">Animal</a></li>
+    <li><a href="{{ url_for('meme') }}">Meme</a></li>
+   </ul>
+  </div>
+
+  <div class="content">
+        <div class="smallbox">
+            <div class="image-container">
+                <div class="frame">
+                <img class="myImg" src="{{ url_for('static', filename='img/life/l1.jpg') }}" data-description="在路邊撿到一個帽子送你，我們好像才剛認識一個禮拜嗎？？難怪這麼配合！">
+        </div></div>
+      </div>
+        <div id="myModal" class="modal">
+                <div class="modal-content">
+                  <span class="close"><img src="{{ url_for('static', filename='img/k.png')}}"></span>
+                  <p id="modal-text"></p>
+                </div>
+              </div>
+  
+
+        <div class="smallbox">
+            <div class="image-container">
+                <div class="frame">
+                <img class="myImg" src="{{ url_for('static', filename='img/life/l2.jpg') }}" data-description="你好愛拍照！！連雪人都不放過">
+        </div>
+        </div></div>
+        <div class="smallbox">
+            <div class="image-container">
+                <div class="frame">
+                <img class="myImg" src="{{ url_for('static', filename='img/life/l3.jpg') }}" data-description="貓貓咖啡廳">
+        </div>
+        </div></div>
+        <div class="smallbox" style="margin-right: 0;">
+            <div class="image-container">
+                <div class="frame">
+               <img class="myImg" src="{{ url_for('static', filename='img/life/l4.jpg') }}" data-description="跟貓合照！沒把貓嚇走很棒！">
+        </div>
+      </div>
+  </div>
+  </div>
+      <br/>
+
+      <div class="content">
+            <div class="smallbox">
+                <div class="image-container">
+                    <div class="frame">
+                    <img class="myImg" src="{{ url_for('static', filename='img/life/l5.jpg') }}" data-description="演白馬王子，還嚇走一個小孩">           
+            </div>
+            </div>
+            </div>
+            <div class="smallbox">
+                <div class="image-container">
+                    <div class="frame">
+                    <img class="myImg" src="{{ url_for('static', filename='img/life/l6.jpg') }}" data-description="你自願學兔子～唯妙唯肖">
+            </div>
+            </div>
+            </div>
+            <div class="smallbox">
+                <div class="image-container">
+                    <div class="frame">
+                    <img class="myImg" src="{{ url_for('static', filename='img/life/l7.jpg') }}" data-description="忘記你幹嘛亂哭，但就變你的梗圖，非常實用，謝謝哥">
+            </div>
+            </div>
+            </div>
+            <div class="smallbox" style="margin-right: 0;">
+                <div class="image-container">
+                    <div class="frame">
+                    <img class="myImg" src="{{ url_for('static', filename='img/life/l8.jpg') }}" data-description="又再假哭＝＝不過好像是我proposal完你請我們吃飯！">
+            </div>
+          </div>
+      </div>
+      </div>
+          <br/>
+
+          <div class="content">
+                <div class="smallbox">
+                    <div class="image-container">
+                        <div class="frame">
+                        <img class="myImg" src="{{ url_for('static', filename='img/life/l9.jpg') }}" data-description="原來我真的跟你吃過鼎泰豐耶！！">
+                </div>
+                </div>
+                </div>
+                <div class="smallbox">
+                    <div class="image-container">
+                        <div class="frame">
+                       <img class="myImg" src="{{ url_for('static', filename='img/life/l10.jpg') }}" data-description="我在督促你讀書(PMP)，但幹嘛亂戴髮捲啊">
+                </div>
+                </div>
+                </div>
+                <div class="smallbox">
+                    <div class="image-container">
+                        <div class="frame">
+                       <img class="myImg" src="{{ url_for('static', filename='img/life/l11.jpg') }}" data-description="被誰職場霸凌QQ那麼委屈">
+                </div>
+                </div>
+                </div>
+          
+                <div class="smallbox" style="margin-right: 0;">
+                    <div class="image-container">
+                        <div class="frame">
+                        <img class="myImg" src="{{ url_for('static', filename='img/life/l12.jpg') }}" data-description="你最愛的24樓，開幕第一天就準時報到，特別幫您紀念留影">
+                </div>
+              </div>
+          </div>
+          </div>
+              <br/>
+
+              <div class="content">
+                    <div class="smallbox">
+                        <div class="image-container">
+                            <div class="frame">
+                           <img class="myImg" src="{{ url_for('static', filename='img/life/l13.jpg') }}" data-description="國泰第一屆啤酒王冠軍誕生！！歷史性的一刻">
+                    </div>
+                    </div>
+                    </div>
+              
+                    <div class="smallbox">
+                        <div class="image-container">
+                            <div class="frame">
+                            <img class="myImg" src="{{ url_for('static', filename='img/life/l14.jpg') }}" data-description="你在學太空人嗎，好好笑，模仿大師">
+                    </div>
+                        </div>
+                    </div>
+                    <div class="smallbox">
+                        <div class="image-container">
+                            <div class="frame">
+                            <img class="myImg" src="{{ url_for('static', filename='img/life/l15.jpg') }}" data-description="補班日！整個33樓只有我們：）你好愛跪，我們才要跪你">
+                    </div>
+                    </div>
+                    </div>
+                    <div class="smallbox" style="margin-right: 0;">
+                        <div class="image-container">
+                            <div class="frame">
+                            <img class="myImg" src="{{ url_for('static', filename='img/life/l16.jpg') }}" data-description="生日快樂！！還戴兔子帽，一直說不要戴還是戴得很開心啊">
+                    </div>
+                  </div>
+              </div>
+              </div>
+                  <h5 style="top: 405px; left: 350px;"> 
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                        &copy; 2023 Cathay SA Intern. All rights reserved.</h5>
+                
+ </div>
+
+ <script>
+// 取得模態框元素和所有帶有myImg類別的圖片元素
+var modal = document.getElementById("myModal");
+var imgs = document.querySelectorAll(".myImg");
+
+// 取得關閉按鈕元素和顯示文字的元素
+var span = document.getElementsByClassName("close")[0];
+var modalText = document.getElementById("modal-text");
+
+// 當用戶點擊任何一個帶有myImg類別的圖片時，打開模態框，顯示對應的文字
+imgs.forEach(function(img) {
+  img.onclick = function() {
+    modal.style.display = "block";
+    modalText.textContent = img.getAttribute("data-description");
+  }
+});
+
+// 當用戶點擊關閉按鈕時，關閉模態框
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// 當用戶點擊模態框以外的區域時，關閉模態框
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+ </script>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <title>About Kite</title>
+ <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+ 
+ <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
+ <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+
+ <style>
+		 .profile {
+             display: flex;
+             align-items: center;
+             margin: 20px;
+             padding: 20px;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+             border-radius: 10px;
+         }
+ 
+         .profile img {
+             width: 200px;
+             height: 200px;
+             border-radius: 50%;
+             object-fit: cover;
+             object-position: center;
+             margin-right: 20px;
+         }
+ 
+         .profile h2 {
+             font-size: 24px;
+             margin-bottom: 10px;
+         }
+ 
+         .profile p {
+             font-size: 18px;
+             line-height: 1.5;
+             margin-bottom: 10px;
+         }
+         .k_family{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+         .k_family img {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            }
+         .k_profile{
+            float: right;
+           
+            }
+	</style>
+
+
+
+ 
+</head>
+
+<body>
+ <!--1.導航-->
+ <div id="nav">
+  <ul class="main-menu">
+   <li class="first"><a href="{{ url_for('pay') }}">Pay</a></li>
+   <li><a href="{{ url_for('pay') }}">Like</a></li>
+   <li><a href="{{ url_for('home') }}">Home</a>
+  </ul>
+
+  <div class="search">
+   <form>
+        <!--<input type="text" value="SEARCH" class="text" />-->
+        <input type="submit" value="" class="bt" />
+   </form>
+  </div>
+ </div>
+
+
+
+ <!--3.主體-->
+ <div id="main">
+  <div class="left">
+   <ul>
+        <li class="main-menu"><a href="#">Life</a>
+			<div class="dropdown">
+					<a href="{{ url_for('life') }}">Kite</a>
+					<a href="{{ url_for('life_together') }}">Together</a>
+				
+			</div>
+		</li>
+    <li><a href="{{url_for('food')}}">Food</a></li>
+    <li><a href="{{url_for('animal')}}">Animal</a></li>
+    <li><a href="{{url_for('meme')}}">Meme</a></li>
+   </ul>
+  </div>
+
+  <div class="profile">
+        <p>Birthday: 1982/01/04<br>
+           Sign: 摩羯<br>
+           Blood type: A<br>
+           Nickname: 小凱<br>
+           Personality: Talented<br>
+           Motto: 跟男生吃飯飯會餿掉<br>
+        </p>
+       
+        
+               
+       <img src="{{ url_for('static', filename='img/k_profile3.jpg') }}" alt="個人照">
+        <div class="profile-text">
+            <a href="https://tw.linkedin.com/in/kite-chen-8093801b?original_referer=https%3A%2F%2Fwww.google.com%2F" ><h2 style="color: grey;">Kite Chen</h2></a>
+            <h4 style="color: grey;">Cathay Finacial Holdings Co., Ltd.</h4>
+            <h4 style="color: grey;">Senior Architect</h4> 
+        </div>
+    </div>
+        <div class="k_family">
+                <img src="{{ url_for('static', filename='img/k1_new.jpg') }}">
+        <img src="{{ url_for('static', filename='img/family.jpg') }}">
+        <img src="{{ url_for('static', filename='img/k2_new.jpg') }}">
+    </div>
+<br>
+              <h5 style="top: 405px; left: 350px;"> 
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    
+                    &copy; 2023 Cathay SA Intern. All rights reserved.</h5>
+
+  
+ </div>
+

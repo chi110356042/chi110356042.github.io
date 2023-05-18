@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="UTF-8">
+ <title>Kite Meme</title>
+ <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+ <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
+ <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+ 
+<style>
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.image-container img {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+
+.image-container::after {
+  content: attr(data-description);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover::after {
+  opacity: 1;
+}
+
+.frame {
+  border: 2px solid #aaaaaa;
+  padding: 5px; /* 調整外框和圖片之間的間距 */
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  justify-content:  space-between; /* space-between;  調整元素之間的間距 */
+  align-items: center; /* 垂直居中對齊元素 */
+}
+
+</style>
+
+
+ 
+</head>
+
+<body>
+ <!--1.導航-->
+ <div id="nav">
+  <ul class="main-menu">
+   <li class="first"><a href="{{ url_for('pay') }}">Pay</a></li>
+   <li><a href="{{ url_for('pay') }}">Like</a></li>
+   <li><a href="{{ url_for('home') }}">Home</a>
+  </ul>
+
+  <div class="search">
+   <form>
+       <!--<input type="text" value="SEARCH" class="text" />-->
+    <input type="submit" value="" class="bt" />
+   </form>
+  </div>
+ </div>
+
+
+
+ <!--3.主體-->
+ <div id="main">
+  <div class="left">
+   <ul>
+        <li class="main-menu"><a href="#">Life</a>
+			<div class="dropdown">
+					<a href="{{ url_for('life') }}">Kite</a>
+					<a href="{{ url_for('life_together') }}">Together</a>
+				
+			</div>
+		</li>
+    <li><a href="{{ url_for('food') }}">Food</a></li>
+    <li><a href="{{ url_for('animal') }}">Animal</a></li>
+    <li><a href="{{ url_for('meme') }}">Meme</a></li>
+   </ul>
+  </div>
+
+  <div class="content">
+        <div class="smallbox">
+                        
+                <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                        <img src="{{ url_for('static', filename='img/meme/m1.jpg') }}" ></div></div></a>
+        </div>
+
+       
+  
+  
+        <div class="smallbox">
+                      
+                <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                        <img src="{{ url_for('static', filename='img/meme/m2.jpg') }}" ></div></div></a>
+        </div>
+  
+        <div class="smallbox">
+                       
+                <a href="{{ url_for('pay') }}" > <div class="image-container"><div class="frame">
+                        <img src="{{ url_for('static', filename='img/meme/m3.jpg') }}" ></div></div></a>
+        </div>
+        
+  
+        <div class="smallbox" style="margin-right: 0;">
+                        
+                <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                        <img src="{{ url_for('static', filename='img/meme/m4.jpg') }}" ></div></div></a>
+        </div>
+      </div>
+  
+      <br/>
+
+      <div class="content">
+            <div class="smallbox">
+                        
+                    <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                            <img src="{{ url_for('static', filename='img/meme/m5.jpg') }}"></div></div></a>
+            </div>
+          
+            <div class="smallbox">
+                       
+                    <a href="{{ url_for('pay') }}" > <div class="image-container"><div class="frame">
+                            <img src="{{ url_for('static', filename='img/meme/m6.jpg') }}" ></div></div></a>
+            </div>
+
+            <div class="smallbox">
+                       
+                    <a href="{{ url_for('pay') }}" > <div class="image-container"><div class="frame">
+                            <img src="{{ url_for('static', filename='img/meme/m7.jpg') }}" ></div></div></a>
+            </div>
+
+            <div class="smallbox" style="margin-right: 0;">
+                        
+                    <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                            <img src="{{ url_for('static', filename='img/meme/m8.jpg') }}" ></div></div></a>
+            </div>
+          </div>
+
+          <br/>
+
+          <div class="content">
+                <div class="smallbox">
+                                
+                        <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                                <img src="{{ url_for('static', filename='img/meme/m9.jpg') }}" ></div></div></a>
+                </div>
+              
+                <div class="smallbox">
+                                
+                        <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                                <img src="{{ url_for('static', filename='img/meme/m10.jpg') }}" ></div></div></a>
+                </div>
+               
+                <div class="smallbox">
+                                
+                        <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                                <img src="{{ url_for('static', filename='img/meme/m11.jpg') }}" ></div></div></a>
+                </div>
+      
+                <div class="smallbox" style="margin-right: 0;">
+                                
+                        <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                                <img src="{{ url_for('static', filename='img/meme/m12.jpg') }}"></div></div></a>
+                </div>
+              </div>
+         
+              <br/>
+
+            <div class="content">
+                    <div class="smallbox">
+                               
+                            <a href="{{ url_for('pay') }}" > <div class="image-container"><div class="frame">
+                                    <img src="{{ url_for('static', filename='img/meme/m13_new.jpg') }}"></div></div></a>
+                    </div>
+          
+                    <div class="smallbox">
+                                
+                            <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                                    <img src="{{ url_for('static', filename='img/meme/m14_new.jpg') }}"></div></div></a>
+                    </div>
+                  
+                    <div class="smallbox">
+                                
+                            <a href="{{ url_for('pay') }}" ><div class="image-container"><div class="frame">
+                                <img src="{{ url_for('static', filename='img/meme/m15.jpg') }}"></div></div></a>
+                    </div>
+              
+                    <div class="smallbox" style="margin-right: 0;">
+                               
+                            <a href="{{ url_for('pay') }}" > <div class="image-container"><div class="frame">
+                                    <img src="{{ url_for('static', filename='img/meme/m16.jpg') }}" ></div></div></a>
+                    </div>
+                  </div>
+        
+           
+    
+                  <h5 style="top: 405px; left: 350px;"> 
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                       
+                        &copy; 2023 Cathay SA Intern. All rights reserved.</h5>
+  
+ </div>
+
+ <script>
+     // 取得模態框元素和所有帶有myImg類別的圖片元素
+var modal = document.getElementById("myModal");
+var imgs = document.querySelectorAll(".myImg");
+
+// 取得關閉按鈕元素
+var span = document.getElementsByClassName("close")[0];
+
+// 當用戶點擊任何一個帶有myImg類別的圖片時，打開模態框
+imgs.forEach(function(img) {
+  img.onclick = function() {
+    modal.style.display = "block";
+  }
+});
+
+// 當用戶點擊關閉按鈕時，關閉模態框
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// 當用戶點擊模態框以外的區域時，關閉模態框
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+       
+        </script>
