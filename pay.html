@@ -5,8 +5,8 @@
  <meta charset="UTF-8">
  <title>Donate Us</title>
  <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
- <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
- <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+ <link rel="stylesheet" href="static/css/use.css">
+ <link rel="stylesheet" href="static/css/use2.css">
 
  <style>
         * {
@@ -563,16 +563,20 @@ html {
 
  <!--3.主體-->
  <div id="main">
-        <div class="left">
-         <ul>
-              <li class="main-menu"><a href="{{ url_for('life') }}">Life</a>
-                
-              </li>
-          <li><a href="{{ url_for('food') }}">Food</a></li>
-          <li><a href="{{ url_for('animal') }}">Animal</a></li>
-          <li><a href="{{ url_for('meme') }}">Meme</a></li>
-         </ul>
-        </div>
+  <div class="left">
+   <ul>
+        <li class="main-menu"><a href="#">Life</a>
+			<div class="dropdown">
+					<a href="Life.html">Kite</a>
+					<a href="Life_together.html">Together</a>
+				
+			</div>
+		</li>
+    <li><a href="food.html">Food</a></li>
+    <li><a href="animal.html">Animal</a></li>
+    <li><a href="meme.html">Meme</a></li>
+   </ul>
+  </div>
 
   <div class="about-section">
         <h1 style="font-family:cursive">About Us</h1>
@@ -582,7 +586,7 @@ html {
 
       <div id="myModal" class="modal">
           <div class="modal-content">
-            <span class="close"><img src="{{ url_for('static', filename='img/k.png')}}"></span>
+            <span class="close"><img src="static/img/k.png"></span>
             <p id="modal-text"></p>
           </div>
         </div>
@@ -595,7 +599,7 @@ html {
             <p class="title">Senior Intern</p>
               <p>謝謝凱哥>\\< </p>
               <br>
-            <img src="{{ url_for('static', filename='img/chi_pay.jpg') }}"  style="display:flex; align-items:center; justify-content:center; width:90%">
+            <img src="static/img/chi_pay.jpg"  style="display:flex; align-items:center; justify-content:center; width:90%">
             <div class="container">
             
               
@@ -614,7 +618,7 @@ html {
             <p class="title">Senior Intern</p>
             <p>謝謝凱哥:))</p>
             <br>
-            <img src="{{ url_for('static', filename='img/fei_pay.jpg') }}"   style="display:flex; align-items:center; justify-content:center; width:90%">
+            <img src="static/img/fei_pay.jpg"   style="display:flex; align-items:center; justify-content:center; width:90%">
             <div class="container">
               
              

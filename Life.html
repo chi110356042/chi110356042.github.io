@@ -5,8 +5,8 @@
  <meta charset="UTF-8">
  <title>Kite Life</title>
  <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
- <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
- <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+ <link rel="stylesheet" href="static/css/use.css">
+ <link rel="stylesheet" href="static/css/use2.css">
  <style>
 
 
@@ -144,9 +144,9 @@
  <!--1.導航-->
  <div id="nav">
   <ul class="main-menu">
-   <li class="first"><a href="{{ url_for('pay') }}">Pay</a>
-   <li><a href="{{ url_for('pay') }}">Like</a></li>
-   <li><a href="{{ url_for('home') }}">Home</a>
+   <li class="first"><a href="pay.html">Pay</a>
+   <li><a href="pay.html">Like</a></li>
+   <li><a href="index.html">Home</a>
   </ul></li>
 
   <div class="search">
@@ -165,27 +165,26 @@
    <ul>
         <li class="main-menu"><a href="#">Life</a>
 			<div class="dropdown">
-					<a href="{{ url_for('life') }}">Kite</a>
-					<a href="{{ url_for('life_together') }}">Together</a>
+					<a href="Life.html">Kite</a>
+					<a href="Life_together.html">Together</a>
 				
 			</div>
 		</li>
-    <li><a href="{{ url_for('food') }}">Food</a></li>
-    <li><a href="{{ url_for('animal') }}">Animal</a></li>
-    <li><a href="{{ url_for('meme') }}">Meme</a></li>
+    <li><a href="food.html">Food</a></li>
+    <li><a href="animal.html">Animal</a></li>
+    <li><a href="meme.html">Meme</a></li>
    </ul>
   </div>
-
   <div class="content">
         <div class="smallbox">
             <div class="image-container">
                 <div class="frame">
-                <img class="myImg" src="{{ url_for('static', filename='img/life/l1.jpg') }}" data-description="在路邊撿到一個帽子送你，我們好像才剛認識一個禮拜嗎？？難怪這麼配合！">
+                <img class="myImg" src="static/img/life/l1.jpg" data-description="在路邊撿到一個帽子送你，我們好像才剛認識一個禮拜嗎？？難怪這麼配合！">
         </div></div>
       </div>
         <div id="myModal" class="modal">
                 <div class="modal-content">
-                  <span class="close"><img src="{{ url_for('static', filename='img/k.png')}}"></span>
+                  <span class="close"><img src="static/img/k.png"></span>
                   <p id="modal-text"></p>
                 </div>
               </div>
@@ -194,19 +193,19 @@
         <div class="smallbox">
             <div class="image-container">
                 <div class="frame">
-                <img class="myImg" src="{{ url_for('static', filename='img/life/l2.jpg') }}" data-description="你好愛拍照！！連雪人都不放過">
+                <img class="myImg" src="static/img/life/l2.jpg" data-description="你好愛拍照！！連雪人都不放過">
         </div>
         </div></div>
         <div class="smallbox">
             <div class="image-container">
                 <div class="frame">
-                <img class="myImg" src="{{ url_for('static', filename='img/life/l3.jpg') }}" data-description="貓貓咖啡廳">
+                <img class="myImg" src="static/img/life/l3.jpg" data-description="貓貓咖啡廳">
         </div>
         </div></div>
         <div class="smallbox" style="margin-right: 0;">
             <div class="image-container">
                 <div class="frame">
-               <img class="myImg" src="{{ url_for('static', filename='img/life/l4.jpg') }}" data-description="跟貓合照！沒把貓嚇走很棒！">
+               <img class="myImg" src="static/img/life/l4.jpg" data-description="跟貓合照！沒把貓嚇走很棒！">
         </div>
       </div>
   </div>
@@ -217,28 +216,28 @@
             <div class="smallbox">
                 <div class="image-container">
                     <div class="frame">
-                    <img class="myImg" src="{{ url_for('static', filename='img/life/l5.jpg') }}" data-description="演白馬王子，還嚇走一個小孩">           
+                    <img class="myImg" src="static/img/life/l5.jpg" data-description="演白馬王子，還嚇走一個小孩">           
             </div>
             </div>
             </div>
             <div class="smallbox">
                 <div class="image-container">
                     <div class="frame">
-                    <img class="myImg" src="{{ url_for('static', filename='img/life/l6.jpg') }}" data-description="你自願學兔子～唯妙唯肖">
+                    <img class="myImg" src="static/img/life/l6.jpg" data-description="你自願學兔子～唯妙唯肖">
             </div>
             </div>
             </div>
             <div class="smallbox">
                 <div class="image-container">
                     <div class="frame">
-                    <img class="myImg" src="{{ url_for('static', filename='img/life/l7.jpg') }}" data-description="忘記你幹嘛亂哭，但就變你的梗圖，非常實用，謝謝哥">
+                    <img class="myImg" src="static/img/life/l7.jpg" data-description="忘記你幹嘛亂哭，但就變你的梗圖，非常實用，謝謝哥">
             </div>
             </div>
             </div>
             <div class="smallbox" style="margin-right: 0;">
                 <div class="image-container">
                     <div class="frame">
-                    <img class="myImg" src="{{ url_for('static', filename='img/life/l8.jpg') }}" data-description="又再假哭＝＝不過好像是我proposal完你請我們吃飯！">
+                    <img class="myImg" src="static/img/life/l8.jpg" data-description="又再假哭＝＝不過好像是我proposal完你請我們吃飯！">
             </div>
           </div>
       </div>
@@ -249,21 +248,21 @@
                 <div class="smallbox">
                     <div class="image-container">
                         <div class="frame">
-                        <img class="myImg" src="{{ url_for('static', filename='img/life/l9.jpg') }}" data-description="原來我真的跟你吃過鼎泰豐耶！！">
+                        <img class="myImg" src="static/img/life/l9.jpg" data-description="原來我真的跟你吃過鼎泰豐耶！！">
                 </div>
                 </div>
                 </div>
                 <div class="smallbox">
                     <div class="image-container">
                         <div class="frame">
-                       <img class="myImg" src="{{ url_for('static', filename='img/life/l10.jpg') }}" data-description="我在督促你讀書(PMP)，但幹嘛亂戴髮捲啊">
+                       <img class="myImg" src="static/img/life/l10.jpg" data-description="我在督促你讀書(PMP)，但幹嘛亂戴髮捲啊">
                 </div>
                 </div>
                 </div>
                 <div class="smallbox">
                     <div class="image-container">
                         <div class="frame">
-                       <img class="myImg" src="{{ url_for('static', filename='img/life/l11.jpg') }}" data-description="被誰職場霸凌QQ那麼委屈">
+                       <img class="myImg" src="static/img/life/l11.jpg" data-description="被誰職場霸凌QQ那麼委屈">
                 </div>
                 </div>
                 </div>
@@ -271,7 +270,7 @@
                 <div class="smallbox" style="margin-right: 0;">
                     <div class="image-container">
                         <div class="frame">
-                        <img class="myImg" src="{{ url_for('static', filename='img/life/l12.jpg') }}" data-description="你最愛的24樓，開幕第一天就準時報到，特別幫您紀念留影">
+                        <img class="myImg" src="static/img/life/l12.jpg" data-description="你最愛的24樓，開幕第一天就準時報到，特別幫您紀念留影">
                 </div>
               </div>
           </div>
@@ -282,7 +281,7 @@
                     <div class="smallbox">
                         <div class="image-container">
                             <div class="frame">
-                           <img class="myImg" src="{{ url_for('static', filename='img/life/l13.jpg') }}" data-description="國泰第一屆啤酒王冠軍誕生！！歷史性的一刻">
+                           <img class="myImg" src="static/img/life/l13.jpg" data-description="國泰第一屆啤酒王冠軍誕生！！歷史性的一刻">
                     </div>
                     </div>
                     </div>
@@ -290,21 +289,21 @@
                     <div class="smallbox">
                         <div class="image-container">
                             <div class="frame">
-                            <img class="myImg" src="{{ url_for('static', filename='img/life/l14.jpg') }}" data-description="你在學太空人嗎，好好笑，模仿大師">
+                            <img class="myImg" src="static/img/life/l14.jpg" data-description="你在學太空人嗎，好好笑，模仿大師">
                     </div>
                         </div>
                     </div>
                     <div class="smallbox">
                         <div class="image-container">
                             <div class="frame">
-                            <img class="myImg" src="{{ url_for('static', filename='img/life/l15.jpg') }}" data-description="補班日！整個33樓只有我們：）你好愛跪，我們才要跪你">
+                            <img class="myImg" src="static/img/life/l15.jpg" data-description="補班日！整個33樓只有我們：）你好愛跪，我們才要跪你">
                     </div>
                     </div>
                     </div>
                     <div class="smallbox" style="margin-right: 0;">
                         <div class="image-container">
                             <div class="frame">
-                            <img class="myImg" src="{{ url_for('static', filename='img/life/l16.jpg') }}" data-description="生日快樂！！還戴兔子帽，一直說不要戴還是戴得很開心啊">
+                            <img class="myImg" src="static/img/life/l16.jpg" data-description="生日快樂！！還戴兔子帽，一直說不要戴還是戴得很開心啊">
                     </div>
                   </div>
               </div>

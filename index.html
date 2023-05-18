@@ -5,9 +5,9 @@
 <head>
   <meta charset="utf-8">
   <title>Kite Memory</title>
-  
-  <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
-  <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
+  <link rel="stylesheet" href="static/css/use.css">
+ <link rel="stylesheet" href="static/css/use2.css">
+ 
   <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
@@ -274,8 +274,8 @@ a:hover b {
   <!--1.導航-->
   <div id="nav">
 			<div id="title">
-				<a href="{{url_for('home')}}">Kite</a>
-				<a href="{{ url_for('pay') }}"><img src="static/img/k.jpg" class="kite_img"></a>
+				<a href="index.html">Kite</a>
+				<a href="pay.html"><img src="static/img/k.jpg" class="kite_img"></a>
 			
 			</div>
 			
@@ -288,10 +288,10 @@ a:hover b {
       			</form>
 			</div>
 			
-			<a href="{{ url_for('pay') }}" id="myBtn" class="first"><img src="{{url_for('static',filename='img/memb.png')}}"  class="mem"/></a>
-			<a href="{{ url_for('pay') }}"><img src="{{url_for('static',filename='img/favor.png')}}"  class="favo"/></a>
+			<a href="pay.html" id="myBtn" class="first"><img src="static/img/memb.jpg"  class="mem"/></a>
+			<a href="pay.html"><img src="static/img/favor.jpg"  class="favo"/></a>
 		
-			<a href="{{ url_for('about') }}" class="about">About</a>
+			<a href="about.html" class="about">About</a>
 			
 		
 	</div>
@@ -303,12 +303,12 @@ a:hover b {
 		</div>
 	  
 		<div class="mySlides fade">
-		  <img src="{{url_for('static',filename='img/pic_new.jpg')}}" style="width:100%; height:450px;">
+		  <img src="static/img/pic_new.jpg" style="width:100%; height:450px;">
 		  <div class="t">Dr. Kite</div>
 		</div>
 	  
 		<div class="mySlides fade">
-		  <img src="{{url_for('static',filename='img/pic_new2.jpg')}}" style="width:100%; height:450px;">
+		  <img src="static/img/pic_new2.jpg" style="width:100%; height:450px;">
 		  <div class="t" >Cathay Hero!!</div>
 		</div>
 	  
@@ -367,21 +367,21 @@ a:hover b {
       <ul>
         <li class="main-menu"><a href="#">Life</a>
 			<div class="dropdown">
-					<a href="{{ url_for('life') }}">Kite</a>
-					<a href="{{ url_for('life_together') }}"> Together</a>
+					<a href="Life.html">Kite</a>
+					<a href="Life_together.html"> Together</a>
 			</div>
 		</li>
-        <li class="main-menu"><a href="{{ url_for('food') }}">Food</a>
+        <li class="main-menu"><a href="food.html">Food</a>
           <div class="dropdown">
            
           </div>
         </li>
-        <li class="main-menu"><a href="{{ url_for('animal') }}">Animal</a>
+        <li class="main-menu"><a href="animal.html">Animal</a>
 			<div class="dropdown">
 			
 			</div>
 		</li>
-        <li class="main-menu"><a href="{{ url_for('meme') }}">Meme</a>
+        <li class="main-menu"><a href="meme.html">Meme</a>
 			<div class="dropdown">
 			
 			</div>
@@ -392,17 +392,17 @@ a:hover b {
     <div class="content">
       <div class="smallbox">
 	
-		    <a href="{{ url_for('life') }}"><img src="{{ url_for('static', filename='img/life.png') }}"><b style="font-family:verdana; color: #333333; ">Life</b></a>
+		    <a href="Life.html"><img src="static/img/life.png"><b style="font-family:verdana; color: #333333; ">Life</b></a>
                    
                   </div>
 
       <div class="smallbox">
 		
-			<a href="{{ url_for('food') }}"><img src="{{ url_for('static', filename='img/food.png') }}"><b style="font-family:verdana; color: #333333;">Food</b></a>          
+			<a href="food.html"><img src="static/img/food.png"><b style="font-family:verdana; color: #333333;">Food</b></a>          
                       </div>
                 
       <div class="smallbox">
-		  	<a href="{{ url_for('animal') }}"><img src="{{ url_for('static', filename='img/animal.png') }}"><b style="font-family:verdana; color: #333333;">Animal</b></a>
+		  	<a href="animal.html"><img src="static/img/animal.png"><b style="font-family:verdana; color: #333333;">Animal</b></a>
        
         
     
@@ -411,7 +411,7 @@ a:hover b {
 
 	  <div class="smallbox" style="margin-right: 0;">
 			
-            <a href="{{ url_for('meme') }}"><img src="{{ url_for('static', filename='img/meme.png') }}"><b style="font-family:verdana; color: #333333;">Meme</b></a>
+            <a href="meme.html"><img src="static/img/meme.png"><b style="font-family:verdana; color: #333333;">Meme</b></a>
       </div>
     </div>
 

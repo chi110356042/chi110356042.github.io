@@ -6,9 +6,9 @@
  <title>About Kite</title>
  <script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
  
- <link rel="stylesheet" href="{{url_for('static',filename='css/use.css')}}">
- <link rel="stylesheet" href="{{url_for('static',filename='css/use2.css')}}">
 
+ <link rel="stylesheet" href="static/css/use.css">
+ <link rel="stylesheet" href="static/css/use2.css">
  <style>
 		 .profile {
              display: flex;
@@ -61,9 +61,9 @@
  <!--1.導航-->
  <div id="nav">
   <ul class="main-menu">
-   <li class="first"><a href="{{ url_for('pay') }}">Pay</a></li>
-   <li><a href="{{ url_for('pay') }}">Like</a></li>
-   <li><a href="{{ url_for('home') }}">Home</a>
+   <li class="first"><a href="pay.html">Pay</a></li>
+   <li><a href="pay.html">Like</a></li>
+   <li><a href="index.html">Home</a>
   </ul>
 
   <div class="search">
@@ -82,14 +82,14 @@
    <ul>
         <li class="main-menu"><a href="#">Life</a>
 			<div class="dropdown">
-					<a href="{{ url_for('life') }}">Kite</a>
-					<a href="{{ url_for('life_together') }}">Together</a>
+					<a href="Life.html">Kite</a>
+					<a href="Life_together.html">Together</a>
 				
 			</div>
 		</li>
-    <li><a href="{{url_for('food')}}">Food</a></li>
-    <li><a href="{{url_for('animal')}}">Animal</a></li>
-    <li><a href="{{url_for('meme')}}">Meme</a></li>
+    <li><a href="food.html">Food</a></li>
+    <li><a href="animal.html">Animal</a></li>
+    <li><a href="meme.html">Meme</a></li>
    </ul>
   </div>
 
@@ -104,7 +104,7 @@
        
         
                
-       <img src="{{ url_for('static', filename='img/k_profile3.jpg') }}" alt="個人照">
+       <img src="static/img/k_profile3.jpg" alt="個人照">
         <div class="profile-text">
             <a href="https://tw.linkedin.com/in/kite-chen-8093801b?original_referer=https%3A%2F%2Fwww.google.com%2F" ><h2 style="color: grey;">Kite Chen</h2></a>
             <h4 style="color: grey;">Cathay Finacial Holdings Co., Ltd.</h4>
@@ -112,9 +112,9 @@
         </div>
     </div>
         <div class="k_family">
-                <img src="{{ url_for('static', filename='img/k1_new.jpg') }}">
-        <img src="{{ url_for('static', filename='img/family.jpg') }}">
-        <img src="{{ url_for('static', filename='img/k2_new.jpg') }}">
+                <img src="static/img/k1_new.jpg">
+        <img src="static/img/k1_family.jpg">
+        <img src="static/img/k2_new.jpg">
     </div>
 <br>
               <h5 style="top: 405px; left: 350px;"> 
