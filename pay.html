@@ -539,6 +539,43 @@ html {
    width: 20px;
   }
 
+
+/*here*/
+#popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 250px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      text-align: center;
+      display: none; /* 預設不顯示 */
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+    }
+    
+    /* 關閉按鈕外觀的 CSS */
+    #closeBtn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      font-size: 20px;
+      color: #999;
+    }
+    
+    /* 標題文字的 CSS */
+    h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+    
+    /* 內容文字的 CSS */
+    p {
+      margin: 10px 0;
+      font-size: 14px;
+    }
     </style>
 </head>
 
@@ -630,7 +667,13 @@ html {
             </div>
           </div>
         </div>
+    
 
+        <div id="popup">
+          <span id="closeBtn">&times;</span>
+          
+          <p>風箏pay一定要按><</p>
+        </div>
         
               <!--
         <div class="column">
@@ -692,4 +735,16 @@ html {
     }
   }
   
+  var popup = document.getElementById("popup");
+    var closeBtn = document.getElementById("closeBtn");
+
+    // 當使用者點擊關閉按鈕時
+    closeBtn.onclick = function() {
+      popup.style.display = "none"; // 隱藏視窗
+    };
+
+    // 在網頁載入完成後顯示視窗
+    window.onload = function() {
+      popup.style.display = "block"; // 顯示視窗
+    };
           </script>
