@@ -8,6 +8,7 @@
  <link rel="stylesheet" href="static/css/use.css">
  <link rel="stylesheet" href="static/css/use2.css">
  <style>
+
        /* 隱藏模態框 */
 .modal {
   display: none;
@@ -366,8 +367,8 @@ var modalText = document.getElementById("modal-text");
 // 當用戶點擊任何一個帶有myImg類別的圖片時，打開模態框，顯示對應的文字
 imgs.forEach(function(img) {
   img.onclick = function() {
-    modal.style.backgroundImage = "url(" + img.src + ")";
     modal.style.display = "block";
+    modal.style.backgroundImage = "url(" + img.src + ")";
     modalText.textContent = img.getAttribute("data-description");
   }
 });
