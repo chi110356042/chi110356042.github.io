@@ -24,7 +24,10 @@
 
 /* 模態框內容 */
 .modal-content {
-  background-color: #DCDCDC;
+  /*background-color: #DCDCDC;*/
+  background-color: transparent;
+  background-image: none; /* 移除預設的背景圖片 */
+  opacity: 0.6; 
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -359,6 +362,7 @@
   // 取得模態框元素和所有帶有myImg類別的圖片元素
 var modal = document.getElementById("myModal");
 var imgs = document.querySelectorAll(".myImg");
+var modalContent = document.querySelector(".modal-content");
 
 // 取得關閉按鈕元素和顯示文字的元素
 var span = document.getElementsByClassName("close")[0];
@@ -368,7 +372,7 @@ var modalText = document.getElementById("modal-text");
 imgs.forEach(function(img) {
   img.onclick = function() {
     modal.style.display = "block";
-    modal.style.backgroundImage = "url(" + img.src + ")";
+    modalContent.style.backgroundImage = "url(" + img.src + ")";
     modalText.textContent = img.getAttribute("data-description");
   }
 });
